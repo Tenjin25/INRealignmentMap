@@ -523,4 +523,4 @@ Questions? Suggestions? Found a bug?
 
 ---
 
-**Built with ❤️ in Indiana | Last Updated: December 2025**
+**Built with ❤️ in South Carolina for Hoosiers | Last Updated: December 7, 2025**
