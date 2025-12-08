@@ -19,7 +19,7 @@
       "State legislature districts"
     ],
     "focus": "Statewide Indiana elections - clean geographic political patterns",
-    "processed_date": "2025-12-07"
+    "processed_date": "2025-12-08"
   },
   "results_by_year": {
     "2002": {
@@ -59236,8 +59236,8 @@
             "Socialist": 1
           }
         },
-        "Clar": {
-          "county": "Clar",
+        "Clark": {
+          "county": "Clark",
           "contest": "President (2016)",
           "year": "2016",
           "dem_candidate": "Hillary Clinton",
@@ -61971,8 +61971,8 @@
             "Write-In": 0
           }
         },
-        "Clar": {
-          "county": "Clar",
+        "Clark": {
+          "county": "Clark",
           "contest": "U.S. Senator (2016)",
           "year": "2016",
           "dem_candidate": "Evan Bayh",
@@ -64457,8 +64457,8 @@
             "Independent": 0
           }
         },
-        "Clar": {
-          "county": "Clar",
+        "Clark": {
+          "county": "Clark",
           "contest": "Governor (2016)",
           "year": "2016",
           "dem_candidate": "John R Gregg",
@@ -66925,8 +66925,8 @@
             "REP": 10045
           }
         },
-        "Clar": {
-          "county": "Clar",
+        "Clark": {
+          "county": "Clark",
           "contest": "Attorney General (2016)",
           "year": "2016",
           "dem_candidate": "Lorenzo Arredondo",
