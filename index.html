@@ -3085,50 +3085,39 @@ function filterValidContests(contests) {
 
     function applyCountyContest(contestType, year) {
       
-      // Get contest data from Tennessee JSON structure
+      // Get contest data from Indiana JSON structure
       if (!electionData || !electionData.results_by_year || !electionData.results_by_year[year]) {
         return setStatus('No data available for this year');
       }
       
       const yearData = electionData.results_by_year[year];
-      if (!yearData[contestType]) {
-        return setStatus('No data available for this contest type');
+      
+      // Indiana JSON structure has contest names like "President (2004)" directly
+      const contestData = yearData[contestType];
+      
+      if (!contestData) {
+        return setStatus('No data available for this contest');
       }
       
-      // Find the first contest of this type (e.g., us_senate_2006_1)
-      const contestId = Object.keys(yearData[contestType])[0];
-      const contestData = yearData[contestType][contestId];
-      
-      if (!contestData || !contestData.results) {
-        return setStatus('No contest results found');
-      }
-      
-      // Build color expression for Tennessee counties
+      // Build color expression for Indiana counties
       const expr = ['case'];
       let countiesProcessed = 0;
       
-      Object.entries(contestData.results).forEach(([countyName, countyResult]) => {
-        // Compute color on-the-fly using margin data to ensure consistency
-        const demVotes = countyResult.dem_votes || 0;
-        const repVotes = countyResult.rep_votes || 0;
-        const totalVotes = countyResult.total_votes || countyResult.two_party_total || (demVotes + repVotes);
+      Object.entries(contestData).forEach(([countyName, countyResult]) => {
+        // Skip non-county entries like Statewide
+        if (countyName === 'Statewide' || !countyResult || typeof countyResult !== 'object') {
+          return;
+        }
         
-        if (totalVotes === 0) return; // Skip counties with no votes
+        // Use color from competitiveness data stored in JSON
+        const color = countyResult.competitiveness?.color || '#e0e0e0';
         
-        const demPct = (demVotes / totalVotes) * 100;
-        const repPct = (repVotes / totalVotes) * 100;
-        const marginPct = Math.abs(repPct - demPct);
-        const winner = repPct > demPct ? 'R' : 'D';
+        // Match county names - Indiana GeoJSON uses proper case in County property
+        // Data: "Grant", GeoJSON: "Grant"
+        // Data: "St. Joseph", GeoJSON: "St. Joseph"
+        const normalizedCountyName = countyName.toUpperCase();
         
-        // Use categoryColorForMargin for consistent colors
-        const color = categoryColorForMargin(marginPct, winner);
-        
-        // Match county names (Tennessee uses uppercase in data, proper case in GeoJSON)
-        // Tennessee data: "ANDERSON", GeoJSON: "Anderson" 
-        // Tennessee data: "MONTGOMERY", GeoJSON: "Montgomery"
-        const normalizedCountyName = countyName.replace(/_/g, ' '); // Handle VAN_BUREN -> VAN BUREN
-        
-        expr.push(['==', ['upcase', ['get', 'NAME20']], normalizedCountyName]);
+        expr.push(['==', ['upcase', ['get', 'County']], normalizedCountyName]);
         expr.push(color);
         countiesProcessed++;
       });
@@ -3147,9 +3136,9 @@ function filterValidContests(contests) {
         return setStatus('Error applying colors to map');
       }
       
-  // Update contest display (do not show state prefix to avoid brief out-of-state flashes)
-  document.getElementById('contest-name').textContent = `${contestData.contest_name} (${year})`;
-      setStatus(`Applied Tennessee contest: ${contestData.contest_name} (${countiesProcessed} counties)`);
+      // Update contest display
+      document.getElementById('contest-name').textContent = contestType;
+      setStatus(`Applied contest: ${contestType} (${countiesProcessed} counties)`);
     }
 
     function applyDistrictContest(contestType, year) {
