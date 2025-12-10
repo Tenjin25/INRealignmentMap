@@ -21,9 +21,11 @@ This project visualizes Indiana's electoral realignments using a 15-level compet
 
 ### Interactive Visualization
 - **Mapbox GL JS** powered county-level map with smooth zoom and pan
-- **Dynamic color coding** using a 15-category competitiveness scale
+- **Dynamic color coding** using a 15-category competitiveness scale (75% opacity for better readability)
+- **Two-party margin calculations** for consistent percentage displays
 - **Responsive sidebar** with detailed county-level results and statewide aggregations
 - **Contest selector** with 42 statewide races grouped by office type
+- **Color-coded research findings** highlighting realignment directions (blue for leftward shifts, red for rightward shifts)
 
 ### Data Coverage
 - **12 Years**: 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024
