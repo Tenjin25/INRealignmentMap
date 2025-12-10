@@ -1775,7 +1775,6 @@ function toggleSidebar() {
       // Margin calculation and winner determination
       const margin = demVotes - repVotes;
       // Calculate margin percentage based on two-party vote share for consistency with JSON data
-      const twoPartyTotal = demVotes + repVotes;
       const marginPct = twoPartyTotal > 0 ? Math.abs(margin) / twoPartyTotal * 100 : 0;
       // Determine winner from vote counts since winner field doesn't exist in data
       const winner = demVotes > repVotes ? 'Democratic' : (repVotes > demVotes ? 'Republican' : 'Tie');
