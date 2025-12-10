@@ -1472,7 +1472,7 @@ function mergeGeoElectionData(boundaryGeoJSON, electionData, countyKey='County',
       breakdownRow += `<div style="color:#2563eb;font-size:15px;font-weight:700;">D: ${demVotes.toLocaleString()} (${demPctTwoParty.toFixed(2)}%)</div>`;
       breakdownRow += `<div style="color:#dc2626;font-size:15px;font-weight:700;">R: ${repVotes.toLocaleString()} (${repPctTwoParty.toFixed(2)}%)</div>`;
       if (otherVotes > 0) {
-        breakdownRow += `<div style="color:#6b7280;font-size:15px;font-weight:700;">Other: ${otherVotes.toLocaleString()} (${otherPct.toFixed(2)}% of total)</div>`;
+        breakdownRow += `<div style="color:#6b7280;font-size:15px;font-weight:700;">Other: ${otherVotes.toLocaleString()} (${otherPct.toFixed(2)}%)</div>`;
       }
       breakdownRow += `</div>`;
       statewideContent.innerHTML = `
@@ -1896,7 +1896,7 @@ function toggleSidebar() {
   sidebarContent += `<p class="sidebar-breakdown"><span style="color: ${demColor}; font-weight: bold;">${demCandidate} (D)</span> : ${demPct.toFixed(2)}% (${demVotes.toLocaleString()})</p>`;
   sidebarContent += `<p class="sidebar-breakdown"><span style="color: ${repColor}; font-weight: bold;">${repCandidate} (R)</span> : ${repPct.toFixed(2)}% (${repVotes.toLocaleString()})</p>`;
   if (otherVotes > 0) {
-    sidebarContent += `<p class="sidebar-breakdown"><span style="color: #6b7280; font-weight: bold;">Other Candidates</span> : ${otherPct.toFixed(2)}% of total (${otherVotes.toLocaleString()})</p>`;
+    sidebarContent += `<p class="sidebar-breakdown"><span style="color: #6b7280; font-weight: bold;">Other Candidates</span> : ${otherPct.toFixed(2)}% (${otherVotes.toLocaleString()})</p>`;
   }
   sidebarContent += `</div>`;
   
