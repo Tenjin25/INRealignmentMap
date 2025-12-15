@@ -1465,12 +1465,10 @@ function mergeGeoElectionData(boundaryGeoJSON, electionData, countyKey='County',
         barFlex = `<div style="width:${demPct}%;background:#2563eb;"></div><div style="width:${repPct}%;background:#dc2626;"></div>`;
       }
       barHTML = `<div id="statewide-temperature-bar" style="width:100%;height:32px;border-radius:16px;display:flex;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.08);">${barFlex}</div>`;
-      // Build the D/R/Other breakdown row - show two-party percentages for consistency with margin
-      const demPctTwoParty = twoPartyTotal > 0 ? (demVotes / twoPartyTotal) * 100 : 0;
-      const repPctTwoParty = twoPartyTotal > 0 ? (repVotes / twoPartyTotal) * 100 : 0;
+      // Build the D/R/Other breakdown row - show total vote percentages to match Wikipedia and other sources
       let breakdownRow = `<div style="display:flex;justify-content:space-between;margin-top:6px;">`;
-      breakdownRow += `<div style="color:#2563eb;font-size:15px;font-weight:700;">D: ${demVotes.toLocaleString()} (${demPctTwoParty.toFixed(2)}%)</div>`;
-      breakdownRow += `<div style="color:#dc2626;font-size:15px;font-weight:700;">R: ${repVotes.toLocaleString()} (${repPctTwoParty.toFixed(2)}%)</div>`;
+      breakdownRow += `<div style="color:#2563eb;font-size:15px;font-weight:700;">D: ${demVotes.toLocaleString()} (${demPct.toFixed(2)}%)</div>`;
+      breakdownRow += `<div style="color:#dc2626;font-size:15px;font-weight:700;">R: ${repVotes.toLocaleString()} (${repPct.toFixed(2)}%)</div>`;
       if (otherVotes > 0) {
         breakdownRow += `<div style="color:#6b7280;font-size:15px;font-weight:700;">Other: ${otherVotes.toLocaleString()} (${otherPct.toFixed(2)}%)</div>`;
       }
