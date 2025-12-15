@@ -923,19 +923,19 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="legend-content" id="legend-content">
             <div class="legend-item"><div class="legend-color" style="background: #67000d;"></div>Annihilation Republican (40%+)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #a50f15;"></div>Dominant Republican (30-39.99%)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #cb181d;"></div>Stronghold Republican (20-29.99%)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #ef3b2c;"></div>Safe Republican (10-19.99%)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #fb6a4a;"></div>Likely Republican (5.51-9.99%)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #fcae91;"></div>Lean Republican (1-5.50%)</div>
+            <div class="legend-item"><div class="legend-color" style="background: #a50f15;"></div>Dominant Republican (30.00-39.99%)</div>
+            <div class="legend-item"><div class="legend-color" style="background: #cb181d;"></div>Stronghold Republican (20.00-29.99%)</div>
+            <div class="legend-item"><div class="legend-color" style="background: #ef3b2c;"></div>Safe Republican (10.00-19.99%)</div>
+            <div class="legend-item"><div class="legend-color" style="background: #fb6a4a;"></div>Likely Republican (5.50-9.99%)</div>
+            <div class="legend-item"><div class="legend-color" style="background: #fcae91;"></div>Lean Republican (1.00-5.49%)</div>
             <div class="legend-item"><div class="legend-color" style="background: #fee8c8;"></div>Tilt Republican (0.51-0.99%)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #f7f7f7; border: 1px solid #999;"></div>Tossup (<0.5%)</div>
+            <div class="legend-item"><div class="legend-color" style="background: #f7f7f7; border: 1px solid #999;"></div>Tossup (<0.50%)</div>
             <div class="legend-item"><div class="legend-color" style="background: #e1f5fe;"></div>Tilt Democratic (0.51-0.99%)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #c6dbef;"></div>Lean Democratic (1-5.50%)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #9ecae1;"></div>Likely Democratic (5.51-9.99%)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #6baed6;"></div>Safe Democratic (10-19.99%)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #3182bd;"></div>Stronghold Democratic (20-29.99%)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #08519c;"></div>Dominant Democratic (30-39.99%)</div>
+            <div class="legend-item"><div class="legend-color" style="background: #c6dbef;"></div>Lean Democratic (1.00-5.49%)</div>
+            <div class="legend-item"><div class="legend-color" style="background: #9ecae1;"></div>Likely Democratic (5.50-9.99%)</div>
+            <div class="legend-item"><div class="legend-color" style="background: #6baed6;"></div>Safe Democratic (10.00-19.99%)</div>
+            <div class="legend-item"><div class="legend-color" style="background: #3182bd;"></div>Stronghold Democratic (20.00-29.99%)</div>
+            <div class="legend-item"><div class="legend-color" style="background: #08519c;"></div>Dominant Democratic (30.00-39.99%)</div>
             <div class="legend-item"><div class="legend-color" style="background: #08306b;"></div>Annihilation Democratic (40%+)</div>
         </div>
     </div>
@@ -1434,22 +1434,22 @@ function mergeGeoElectionData(boundaryGeoJSON, electionData, countyKey='County',
         compLabel = winner === 'Republican' ? "Annihilation Republican (40%+)" : "Annihilation Democratic (40%+)";
         compColor = winner === 'Republican' ? '#450a0a' : '#0c1d56';
       } else if (marginPct >= 30) {
-        compLabel = winner === 'Republican' ? "Dominant Republican (30-39.99%)" : "Dominant Democratic (30-39.99%)";
+        compLabel = winner === 'Republican' ? "Dominant Republican (30.00-39.99%)" : "Dominant Democratic (30.00-39.99%)";
         compColor = winner === 'Republican' ? '#7f1d1d' : '#1e3a8a';
       } else if (marginPct >= 20) {
-        compLabel = winner === 'Republican' ? "Stronghold Republican (20-29.99%)" : "Stronghold Democratic (20-29.99%)";
+        compLabel = winner === 'Republican' ? "Stronghold Republican (20.00-29.99%)" : "Stronghold Democratic (20.00-29.99%)";
         compColor = winner === 'Republican' ? '#991b1b' : '#1e40af';
       } else if (marginPct >= 10) {
-        compLabel = winner === 'Republican' ? "Safe Republican (10-19.99%)" : "Safe Democratic (10-19.99%)";
+        compLabel = winner === 'Republican' ? "Safe Republican (10.00-19.99%)" : "Safe Democratic (10.00-19.99%)";
         compColor = winner === 'Republican' ? '#dc2626' : '#3b82f6';
       } else if (marginPct >= 5.5) {
-        compLabel = winner === 'Republican' ? "Likely Republican (5.51-9.99%)" : "Likely Democratic (5.51-9.99%)";
+        compLabel = winner === 'Republican' ? "Likely Republican (5.50-9.99%)" : "Likely Democratic (5.50-9.99%)";
         compColor = winner === 'Republican' ? '#ef4444' : '#60a5fa';
       } else if (marginPct >= 1) {
-        compLabel = winner === 'Republican' ? "Lean Republican (1-5.5%)" : "Lean Democratic (1-5.5%)";
+        compLabel = winner === 'Republican' ? "Lean Republican (1.00-5.49%)" : "Lean Democratic (1.00-5.49%)";
         compColor = winner === 'Republican' ? '#f87171' : '#93c5fd';
       } else if (marginPct >= 0.5) {
-        compLabel = winner === 'Republican' ? "Tilt Republican (0.51-0.99%)" : "Tilt Democratic (0.51-0.99%)";
+        compLabel = winner === 'Republican' ? "Tilt Republican (0.50-0.99%)" : "Tilt Democratic (0.50-0.99%)";
         compColor = winner === 'Republican' ? '#fca5a5' : '#bfdbfe';
       } else {
         compLabel = winner === 'Democratic' ? 'Tossup (Democratic Win)' : 'Tossup (Republican Win)';
