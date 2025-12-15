@@ -1380,9 +1380,8 @@ function mergeGeoElectionData(boundaryGeoJSON, electionData, countyKey='County',
         }
       }
       otherPct = totalVotes > 0 ? (otherVotes / totalVotes) * 100 : 0;
-      // Calculate margin based on two-party vote share for consistency with JSON data
-      const twoPartyTotal = demVotes + repVotes;
-      const marginPct = twoPartyTotal > 0 ? Math.abs(demVotes - repVotes) / twoPartyTotal * 100 : 0;
+      // Calculate margin based on total vote share to match displayed percentages
+      const marginPct = totalVotes > 0 ? Math.abs(demPct - repPct) : 0;
       // Determine winner and get actual candidate name
       let demCandidate = '';
       let repCandidate = '';
