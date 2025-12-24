@@ -36,7 +36,7 @@ This project visualizes Indiana's electoral realignments using a 15-level compet
 ### Competitiveness Categories
 | Category | Republican Margin | Democratic Margin | Color |
 |----------|------------------|-------------------|-------|
-| Tossup | <0 0.5% | < 0.50% | Gray |
+| Tossup | <0.50% | < 0.50% | Gray |
 | Tilt | 0.50-0.99% | 0.50-0.99% | Light Red/Blue |
 | Lean | 1.00-5.49% | 1.00-5.49% | Pale Red/Blue |
 | Likely | 5.50-9.99% | 5.50-9.99% | Medium Red/Blue |
