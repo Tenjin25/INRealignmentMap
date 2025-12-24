@@ -36,13 +36,13 @@ This project visualizes Indiana's electoral realignments using a 15-level compet
 ### Competitiveness Categories
 | Category | Republican Margin | Democratic Margin | Color |
 |----------|------------------|-------------------|-------|
-| Tossup | < 0.5% | < 0.5% | Gray |
-| Tilt | 0.51-0.99% | 0.5-0.99% | Light Red/Blue |
-| Lean | 1-5.50% | 1-5.50% | Pale Red/Blue |
-| Likely | 5.51-9.99% | 5.5-9.99% | Medium Red/Blue |
-| Safe | 10-19.99% | 10-19.99% | Solid Red/Blue |
-| Stronghold | 20-29.99% | 20-29.99% | Deep Red/Blue |
-| Dominant | 30-39.99% | 30-39.99% | Dark Red/Blue |
+| Tossup | <0 0.5% | < 0.50% | Gray |
+| Tilt | 0.50-0.99% | 0.50-0.99% | Light Red/Blue |
+| Lean | 1.00-5.49% | 1.00-5.49% | Pale Red/Blue |
+| Likely | 5.50-9.99% | 5.50-9.99% | Medium Red/Blue |
+| Safe | 10.00-19.99% | 10.00-19.99% | Solid Red/Blue |
+| Stronghold | 20.00-29.99% | 20.00-29.99% | Deep Red/Blue |
+| Dominant | 30.00-39.99% | 30.00-39.99% | Dark Red/Blue |
 | Annihilation | 40%+ | 40%+ | Darkest Red/Blue |
 
 ### Research Findings
@@ -331,7 +331,7 @@ The Trump era (2016-2024) brought unprecedented geographic polarization, with ed
 
 **Hamilton County - The Canary in the Coal Mine**
 - **2004**: Bush 86,624 (70.93%) vs Kerry 26,320 (21.55%) = **R+49.39% Annihilation**
-- **2016**: Trump 85,695 (56.53%) vs Clinton 54,165 (35.72%) = **R+20.82% Safe**
+- **2016**: Trump 85,695 (56.53%) vs Clinton 54,165 (35.72%) = **R+20.82% Stronghold**
 - **2020**: Trump 97,877 (51.23%) vs Biden 84,590 (44.28%) = **R+6.95% Likely**
 - **2024**: Trump 102,318 (51.53%) vs Harris 90,394 (45.54%) = **R+6.19% Likely**
 
