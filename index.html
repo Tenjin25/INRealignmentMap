@@ -65,6 +65,39 @@
     .spinner svg circle {
       animation: spinner-rotate 0.8s linear infinite;
     }
+    .custom-label-toggle {
+      background: #000000;
+      border: none;
+      color: #fbbf24;
+      font-weight: 600;
+      font-size: 18px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      margin-left: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .custom-label-toggle:hover {
+      background: #1f2937;
+      transform: scale(1.1);
+    }
+    .custom-label-toggle .label-icon {
+      font-size: 20px;
+    }
+    .custom-label-toggle .label-text {
+      display: none;
+    }
+    .contest-type-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
   </style>
   <script>
       // Try bbox via turf, then fallback to geometry-derived LngLatBounds (like NCMap)
@@ -905,7 +938,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="mode-toggle active" id="county-mode" onclick="setAnalysisMode('county')">County Results</div>
             </div>
             <div class="control-group">
-                <label>📊 Contest Type:</label>
+                <div class="contest-type-header">
+                  <label>📊 Contest Type:</label>
+                  <button id="toggleLabelsBtn" class="custom-label-toggle"><span class="label-icon" aria-hidden="true">🏷️</span> <span class="label-text">Hide County Labels</span></button>
+                </div>
                 <select id="contestSelect">
                     <option value="">Select a Contest...</option>
                 </select>
@@ -3487,6 +3523,27 @@ function handleCountySelection(countyName) {
 // Remove top-left county search bar if present
 var topSearch = document.getElementById('county-search-wrapper');
 if (topSearch) topSearch.parentNode.removeChild(topSearch);
+
+// Toggle County Labels Functionality
+let labelsVisible = true;
+const toggleLabelsBtn = document.getElementById('toggleLabelsBtn');
+if (toggleLabelsBtn) {
+  toggleLabelsBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    labelsVisible = !labelsVisible;
+    
+    // Toggle the county-label layer visibility
+    if (map && map.getLayer('county-label')) {
+      map.setLayoutProperty('county-label', 'visibility', labelsVisible ? 'visible' : 'none');
+    }
+    
+    // Update button text/aria-label for accessibility
+    const labelText = toggleLabelsBtn.querySelector('.label-text');
+    if (labelText) {
+      labelText.textContent = labelsVisible ? 'Hide County Labels' : 'Show County Labels';
+    }
+  });
+}
     </script>
 </body>
 </html>
